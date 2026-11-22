@@ -102,7 +102,9 @@ nav:
   - Home: index.md
   - Chapters:
       - 1 Foundations: 01-foundations/index.md
-      - 2 Method validation: 02-validation/index.md
+      - 2 Method validation:
+          - 02-validation/index.md
+          - LOD and LOQ: notebooks/02_lod_loq.ipynb
       - 3 Measurement uncertainty:
           - 03-uncertainty/index.md
           - Top-down from QC and PT (Nordtest): notebooks/03_nordtest.ipynb
