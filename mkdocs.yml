@@ -106,6 +106,7 @@ nav:
           - 02-validation/index.md
           - LOD and LOQ: notebooks/02_lod_loq.ipynb
           - Precision (ISO 5725): notebooks/02_precision_anova.ipynb
+          - Linearity and weighting: notebooks/02_linearity.ipynb
       - 3 Measurement uncertainty:
           - 03-uncertainty/index.md
           - Top-down from QC and PT (Nordtest): notebooks/03_nordtest.ipynb

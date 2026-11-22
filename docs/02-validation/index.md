@@ -1,7 +1,7 @@
 # 2 Method validation
 
 !!! info "In progress"
-    Two notebooks are written; the rest of the chapter is planned.
+    Three notebooks are written; trueness and robustness are planned.
 
 **The question this chapter answers:** is the method fit for its intended use?
 
@@ -12,6 +12,6 @@ copper-by-ICP-OES data:
 | --- | --- | --- |
 | Limits of detection and quantitation | [LOD and LOQ](../notebooks/02_lod_loq.ipynb) | Draft |
 | Precision: repeatability and intermediate precision (ISO 5725 ANOVA) | [Precision](../notebooks/02_precision_anova.ipynb) | Draft |
-| Working range and linearity: residuals, lack of fit, weighting | | Planned |
+| Working range and linearity: residuals, lack of fit, weighting | [Linearity](../notebooks/02_linearity.ipynb) | Draft |
 | Trueness: CRMs and spike recovery | | Planned |
 | Robustness: small factorial designs | | Planned |
