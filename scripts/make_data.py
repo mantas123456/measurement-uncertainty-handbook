@@ -143,7 +143,7 @@ def make_qc(rng: np.random.Generator) -> pd.DataFrame:
 
 
 def make_pt(rng: np.random.Generator) -> pd.DataFrame:
-    """Proficiency testing: 12 quarterly rounds, 2024-2026, in ug/L Cu.
+    """Proficiency testing: 12 quarterly rounds, Dec 2023 to Sep 2026, in ug/L Cu.
 
     Assumptions:
     - Assigned values x_pt are spread over the working range, 20-150 ug/L, as
@@ -158,7 +158,7 @@ def make_pt(rng: np.random.Generator) -> pd.DataFrame:
       7 %, as if taken from its own uncertainty budget. En numbers use it.
     """
     n_rounds = 12
-    dates = pd.date_range("2024-02-15", periods=n_rounds, freq="3MS") + pd.Timedelta(days=14)
+    dates = pd.date_range("2023-11-15", periods=n_rounds, freq="3MS") + pd.Timedelta(days=14)
     x_pt = np.round(rng.uniform(20.0, 150.0, size=n_rounds), 1)
     u_x_pt = np.round(0.015 * x_pt, 2)
     sigma_pt = np.round(0.10 * x_pt, 2)

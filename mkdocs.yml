@@ -103,7 +103,9 @@ nav:
   - Chapters:
       - 1 Foundations: 01-foundations/index.md
       - 2 Method validation: 02-validation/index.md
-      - 3 Measurement uncertainty: 03-uncertainty/index.md
+      - 3 Measurement uncertainty:
+          - 03-uncertainty/index.md
+          - Top-down from QC and PT (Nordtest): notebooks/03_nordtest.ipynb
       - 4 Ongoing quality control: 04-qc/index.md
       - 5 Worked examples: 05-examples/index.md
       - 6 Tools and templates: 06-tools/index.md
