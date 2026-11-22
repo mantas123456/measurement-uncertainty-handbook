@@ -1,0 +1,8 @@
+{#- GoatCounter: cookie-free page counts, so no consent banner is needed.
+    Loads only when extra.analytics.goatcounter is set in mkdocs.yml to the
+    site code (the "code" in https://code.goatcounter.com). -#}
+{% set code = config.extra.analytics.goatcounter %}
+{% if code %}
+<script data-goatcounter="https://{{ code }}.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+{% endif %}

@@ -1,0 +1,111 @@
+site_name: Measurement Uncertainty Handbook
+site_description: A free, practical guide to method validation and measurement uncertainty, with runnable Python notebooks on synthetic data.
+site_author: Mantas Valantinavicius
+site_url: https://mantas123456.github.io/measurement-uncertainty-handbook/
+repo_url: https://github.com/mantas123456/measurement-uncertainty-handbook
+repo_name: mantas123456/measurement-uncertainty-handbook
+edit_uri: edit/main/docs/
+copyright: >-
+  Text: CC BY 4.0 · Code and notebooks: MIT ·
+  Educational material; not a substitute for your laboratory's validated procedures
+  or your accreditation body's guidance.
+
+# Theme matches the Lab Accreditation Handbook so the two read as a set.
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.action.edit
+    - content.code.copy
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+extra:
+  analytics:
+    # overrides/partials/integrations/analytics/custom.html
+    provider: custom
+    # GoatCounter site code, e.g. "mu-handbook" for mu-handbook.goatcounter.com.
+    # Empty = no analytics script on the page.
+    goatcounter: ""
+
+hooks:
+  - hooks/notebooks.py
+
+plugins:
+  - search
+  - mkdocs-jupyter:
+      # CI executes every notebook (nbconvert) before the build and fails on
+      # any error, so the plugin only renders the stored outputs.
+      execute: false
+      include_source: true
+      ignore_h1_titles: true
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+
+validation:
+  nav:
+    omitted_files: warn
+    not_found: warn
+  links:
+    not_found: warn
+    anchors: warn
+
+nav:
+  - Home: index.md
+  - Chapters:
+      - 1 Foundations: 01-foundations/index.md
+      - 2 Method validation: 02-validation/index.md
+      - 3 Measurement uncertainty: 03-uncertainty/index.md
+      - 4 Ongoing quality control: 04-qc/index.md
+      - 5 Worked examples: 05-examples/index.md
+      - 6 Tools and templates: 06-tools/index.md
+  - Notebooks:
+      - Synthetic data check: notebooks/00_data_check.ipynb
+  - About:
+      - How to cite: how-to-cite.md
+      - Contribute: contribute.md
+      - References: references.md

@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this handbook, please cite it as below."
+type: software
+title: "Measurement Uncertainty Handbook"
+abstract: >-
+  A free, practical guide to method validation and measurement uncertainty for
+  ISO/IEC 17025 testing laboratories, with runnable Python notebooks on
+  synthetic data and calculations from the tested labqc package.
+  Draft; not yet reviewed by an external practitioner.
+authors:
+  - family-names: "Valantinavičius"
+    given-names: "Mantas"
+version: "0.1.0"
+license:
+  - CC-BY-4.0
+  - MIT
+repository-code: "https://github.com/mantas123456/measurement-uncertainty-handbook"
+url: "https://mantas123456.github.io/measurement-uncertainty-handbook/"
+keywords:
+  - measurement uncertainty
+  - method validation
+  - GUM
+  - Nordtest
+  - Monte Carlo
+  - ISO/IEC 17025
+  - metrology
