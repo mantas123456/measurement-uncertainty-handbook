@@ -1,8 +1,8 @@
 # 1 Foundations
 
 !!! note "Draft"
-    First draft, not yet reviewed by a second practitioner. VIM clause numbers
-    refer to JCGM 200:2012 and are still to be checked against the current edition.
+    First draft, not yet reviewed by a second practitioner. VIM clause numbers are
+    from JCGM 200:2012, still the current edition (checked November 2026).
 
 ## The question this chapter answers
 
@@ -281,8 +281,8 @@ tools and templates.
 - JCGM 200:2012, *International vocabulary of metrology (VIM)*, 3rd edition.
 - JCGM 100:2008, *Guide to the expression of uncertainty in measurement (GUM)*.
 - ISO/IEC 17025:2017, clauses 6.5, 7.1.3, 7.2, 7.6, 7.8.3.
-- Eurachem, *The Fitness for Purpose of Analytical Methods*, 2nd edition (2014).
-- ILAC P10, *ILAC Policy on Metrological Traceability of Measurement Results*.
-- ILAC G8, *Guidelines on Decision Rules and Statements of Conformity*.
+- Eurachem, *The Fitness for Purpose of Analytical Methods*, 3rd edition (2025).
+- ILAC P10:07/2020, *ILAC Policy on Metrological Traceability of Measurement Results*.
+- ILAC G8:09/2019, *Guidelines on Decision Rules and Statements of Conformity*.
 
 Editions and links are tracked on the [References](../references.md) page.
