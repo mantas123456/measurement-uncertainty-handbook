@@ -11,6 +11,7 @@ Datasets written to data/synthetic/:
 - calibration.csv  6-level calibration with 3 replicates (for linearity)
 - qc.csv           60 runs of a control sample (for Nordtest u(Rw), control charts)
 - pt.csv           12 proficiency-testing rounds (for bias, z-scores, En numbers)
+- precision.csv    a water sample in triplicate on 10 days (for ISO 5725 precision)
 
 The script is seeded, so the same version always writes byte-identical files.
 Run it with ``--check`` to confirm that the committed CSVs match the script
@@ -180,6 +181,41 @@ def make_pt(rng: np.random.Generator) -> pd.DataFrame:
     )
 
 
+def make_precision(rng: np.random.Generator) -> pd.DataFrame:
+    """Precision study: one water sample, 3 replicates on each of 10 days, in ug/L Cu.
+
+    Assumptions:
+    - A real-matrix sample (river water) at about 20 ug/L, so precision is
+      measured at a routine level, not only on the 50 ug/L control.
+    - Each replicate is a separate preparation (filtration and acidification)
+      of the same homogeneous sample; the sample is stable over the 10 days.
+    - Repeatability SD 0.40 ug/L (2.0 % RSD) within a day.
+    - Each day adds its own offset with SD 0.40 ug/L (new calibration, reagent
+      lot, analyst), so intermediate precision is about 0.57 ug/L (2.8 % RSD):
+      close to the 3 % u(Rw) of the QC data, as it should be for one lab.
+    - Days are the working days of two weeks in October 2026; the analyst
+      alternates between "A" and "B" so the data can also be grouped by analyst.
+    """
+    n_days, n_reps = 10, 3
+    true_value, sd_repeat, sd_day = 20.0, 0.40, 0.40
+    dates = pd.bdate_range("2026-10-05", periods=n_days)
+    day_offsets = rng.normal(0.0, sd_day, size=n_days)
+    rows = []
+    for day in range(n_days):
+        values = true_value + day_offsets[day] + rng.normal(0.0, sd_repeat, size=n_reps)
+        for rep, value in enumerate(values, start=1):
+            rows.append(
+                {
+                    "day": day + 1,
+                    "date": dates[day].strftime("%Y-%m-%d"),
+                    "analyst": "A" if day % 2 == 0 else "B",
+                    "replicate": rep,
+                    "cu_ug_L": round(float(value), 2),
+                }
+            )
+    return pd.DataFrame(rows)
+
+
 # File name -> generator. The order fixes which child seed each dataset gets;
 # append new datasets at the end so existing files keep their numbers.
 GENERATORS: dict[str, Callable[[np.random.Generator], pd.DataFrame]] = {
@@ -187,6 +223,7 @@ GENERATORS: dict[str, Callable[[np.random.Generator], pd.DataFrame]] = {
     "calibration.csv": make_calibration,
     "qc.csv": make_qc,
     "pt.csv": make_pt,
+    "precision.csv": make_precision,
 }
 
 
